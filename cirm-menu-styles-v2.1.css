@@ -1,11 +1,5 @@
-/* --- Start Unique Circle Menu CSS --- */
-#my-unique-circle-menu {
-  /* यह आईडी कंटेनर पर लागू होती है */
-  font-family: Arial, sans-serif; /* बेसिक फ़ॉन्ट, थीम इसे ओवरराइड कर सकती है */
-}
-
 /* सर्कुलर मेन्यू कंटेनर */
-#my-unique-circle-menu .circle-menu-container {
+.bcm-circle-menu-container {
     position: fixed;
     top: 10px;
     left: 85%; /* आप इसे अपनी आवश्यकतानुसार समायोजित कर सकते हैं */
@@ -14,7 +8,7 @@
 }
 
 /* मेन्यू आइकॉन */
-#my-unique-circle-menu .menu-toggle {
+.bcm-menu-toggle {
     width: 60px;
     height: 60px;
     background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCbarYqIlzfRqB0VbKZvHmwyyPtvU0Y2Nkv1izHDcL_tlX1A6d3u8KtV85jfUhqqZcsUDKds1yQDDn6p_MJbM_wec1tyUHOw50hsTHKlpVzeEfhZR_gkFsL_O4OG0zytlGbKUlJaRQPSDfx7SAqI4D6B_SnWzxSQ-lWz3ld38THUIYWdDwsXE7bBuJx7EN/s374/IMG_20250404_055208.png');
@@ -25,22 +19,23 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#my-unique-circle-menu .menu-toggle:hover {
+.bcm-menu-toggle:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* सब-कैटेगरी मेन्यू */
-#my-unique-circle-menu .menu-categories {
+.bcm-menu-categories {
     position: absolute;
     top: 80px;
-    left: -180%; /* समायोजित */
+    /* right के बजाय left और transform का उपयोग करना अधिक विश्वसनीय हो सकता है */
+    left: -180%;
     transform: translateX(-50%) scale(0); /* प्रारंभिक स्थिति */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 6px;
     width: 310px;
-    background-color: transparent;
+    background-color: transparent; /* ट्रांसपेरेंट रखा गया */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 8px;
@@ -50,57 +45,56 @@
     z-index: 1001;
 }
 
-#my-unique-circle-menu .menu-categories.active {
+.bcm-menu-categories.bcm-active { /* Prefixed class */
     transform: translateX(-50%) scale(1); /* सही ट्रांसफॉर्म */
     opacity: 1;
     visibility: visible;
 }
 
 /* "अपनी पसंद पर क्लिक करें" टाइटल */
-#my-unique-circle-menu .menu-categories .category-title {
+.bcm-menu-categories .bcm-category-title { /* Prefixed class */
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
     padding: 10px;
-    color: #fff;
-    border-bottom: 1px solid #555;
-    display: none;
-    grid-column: 1 / -1;
-    animation: zoomIn 0.8s ease-out;
+    color: #fff; /* सफेद टेक्स्ट */
+    border-bottom: 1px solid #555; /* थोड़ी डार्क बॉर्डर */
+    display: none; /* डिफ़ॉल्ट रूप से छिपा हुआ */
+    grid-column: 1 / -1; /* पूरी चौड़ाई ले */
+    animation: bcm-zoomIn 0.8s ease-out; /* Prefixed animation name */
     background-size: 200% auto;
     transition: background-position 0.5s ease;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 30px; /* गोल किनारे */
     /* ग्रेडिएंट JS द्वारा लागू किया जाएगा */
 }
 
-/* Gradient Background Styles for category titles */
-#my-unique-circle-menu .menu-categories .category-title.gradient-1 { background-image: linear-gradient(135deg, #e74c3c 0%, #e74c3c 10%, #e67e22 10%, #e67e22 20%, #f1c40f 20%, #f1c40f 30%, #2ecc71 30%, #2ecc71 40%, #1abc9c 40%, #1abc9c 50%, #3498db 50%, #3498db 60%, #2980b9 60%, #2980b9 70%, #9b59b6 70%, #9b59b6 80%, #e91e63 80%, #e91e63 90%, #34495e 90%, #34495e 100%); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-2 { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-3 { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-4 { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-5 { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-6 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-7 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-8 { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-9 { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-10 { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-11 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-#my-unique-circle-menu .menu-categories .category-title.gradient-12 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
+/* Gradient Background Styles for category titles (Applied dynamically by JS) - Prefixed */
+.bcm-menu-categories .bcm-category-title.bcm-gradient-1 { background-image: linear-gradient(135deg, #e74c3c 0%, #e74c3c 10%, #e67e22 10%, #e67e22 20%, #f1c40f 20%, #f1c40f 30%, #2ecc71 30%, #2ecc71 40%, #1abc9c 40%, #1abc9c 50%, #3498db 50%, #3498db 60%, #2980b9 60%, #2980b9 70%, #9b59b6 70%, #9b59b6 80%, #e91e63 80%, #e91e63 90%, #34495e 90%, #34495e 100%); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-2 { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-3 { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-4 { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-5 { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-6 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-7 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-8 { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-9 { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-10 { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-11 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.bcm-menu-categories .bcm-category-title.bcm-gradient-12 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
 
 /* Gradient Animation on Hover for category titles */
-#my-unique-circle-menu .menu-categories .category-title:hover {
+.bcm-menu-categories .bcm-category-title:hover {
     background-position: right center;
 }
 
-/* Keyframes वैश्विक होते हैं, इन्हें आईडी से प्रीफिक्स करने की आवश्यकता नहीं */
-@keyframes zoomIn {
+@keyframes bcm-zoomIn { /* Prefixed animation name */
     0% { transform: scale(0.7); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
 
 /* कैटेगरी आइकॉन स्टाइल */
-#my-unique-circle-menu .menu-categories .category {
+.bcm-menu-categories .bcm-category { /* Prefixed class */
     width: 68px;
     height: 68px;
     background-color: #fff;
@@ -116,236 +110,246 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#my-unique-circle-menu .menu-categories .category img {
+.bcm-menu-categories .bcm-category img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     border-radius: 50%;
 }
 
-#my-unique-circle-menu .menu-categories .category:hover {
+.bcm-menu-categories .bcm-category:hover {
     transform: scale(1.15);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border-color: #4caf50;
 }
 
 /* लिंक बॉक्स */
-#my-unique-circle-menu .menu-links {
+.bcm-menu-links { /* Prefixed class */
     position: absolute;
     top: 80px;
-    left: -180%; /* समायोजित */
+    left: -180%; /* कैटेगरी मेन्यू के समान स्थिति */
     transform: translateX(-50%) scale(0); /* प्रारंभिक स्थिति */
     width: 340px;
-    background-color: #200000;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: #200000; /* बैकग्राउंड कलर */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* गहरा शैडो */
     border-radius: 15px;
     padding: 20px;
     opacity: 0;
     visibility: hidden;
-    max-height: 400px;
-    overflow-y: auto;
+    max-height: 400px; /* अधिकतम ऊंचाई */
+    overflow-y: auto; /* स्क्रॉल बार */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, visibility 0.4s ease;
-    display: none;
-    z-index: 1000;
+    display: none; /* Start hidden */
+    z-index: 1000; /* Lower z-index initially */
 }
 
-#my-unique-circle-menu .menu-links.show {
+.bcm-menu-links.bcm-show { /* Prefixed class */
     display: block;
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) scale(1); /* सही ट्रांसफॉर्म */
-    z-index: 1002;
+    transform: translateX(-50%) scale(1); /* दिखने पर सही ट्रांसफॉर्म */
+    z-index: 1002; /* Higher z-index when shown */
 }
 
 /* लिंक्स टाइटल स्टाइल (आइकन के साथ) */
-#my-unique-circle-menu .menu-links .links-title {
+.bcm-menu-links .bcm-links-title { /* Prefixed class */
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
-    animation: fadeInUp 1s ease-in-out;
+    animation: bcm-fadeInUp 1s ease-in-out; /* Prefixed animation name */
     color: #fff;
     padding: 10px;
     border-radius: 8px;
     position: relative;
     z-index: 1;
-    background-color: transparent;
-    overflow: hidden;
+    background-color: transparent; /* Ensure background doesn't obscure the border */
+    overflow: hidden; /* Contain the pseudo-element */
 }
 
 /* लिंक्स टाइटल के लिए एनिमेटेड बॉर्डर */
-#my-unique-circle-menu .menu-links .links-title::before {
+.bcm-menu-links .bcm-links-title::before { /* Prefixed class */
     content: '';
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    top: -2px; left: -2px; right: -2px; bottom: -2px; /* पूरे क्षेत्र को कवर करें */
     background-size: 400% 400%;
-    z-index: -1;
-    border-radius: 10px;
-    animation: Gradient 5s ease infinite;
+    z-index: -1; /* टेक्स्ट के पीछे रखें */
+    border-radius: 10px; /* थोड़ा बड़ा रेडियस ताकि पैरेंट से मैच न करे और बॉर्डर जैसा दिखे */
+    animation: bcm-Gradient 5s ease infinite; /* Prefixed animation name */
+    /* ग्रेडिएंट JS द्वारा लागू किया जाएगा */
 }
 
-/* लिंक्स टाइटल बॉर्डर के लिए ग्रेडिएंट एनिमेशन (JS द्वारा लागू) */
-#my-unique-circle-menu .menu-links .links-title.gradient-1::before { background-image: linear-gradient(90deg, #ff5733, #ffcc00, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-#my-unique-circle-menu .menu-links .links-title.gradient-2::before { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399); }
-#my-unique-circle-menu .menu-links .links-title.gradient-3::before { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff); }
-#my-unique-circle-menu .menu-links .links-title.gradient-4::before { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff, #66ff33, #33ffcc); }
-#my-unique-circle-menu .menu-links .links-title.gradient-5::before { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
-#my-unique-circle-menu .menu-links .links-title.gradient-6::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
-#my-unique-circle-menu .menu-links .links-title.gradient-7::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
-#my-unique-circle-menu .menu-links .links-title.gradient-8::before { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff, #cc33ff); }
-#my-unique-circle-menu .menu-links .links-title.gradient-9::before { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
-#my-unique-circle-menu .menu-links .links-title.gradient-10::before { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933, #ffcc66, #ffff99); }
-#my-unique-circle-menu .menu-links .links-title.gradient-11::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
-#my-unique-circle-menu .menu-links .links-title.gradient-12::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
+/* लिंक्स टाइटल बॉर्डर के लिए ग्रेडिएंट एनिमेशन (JS द्वारा लागू) - Prefixed */
+.bcm-menu-links .bcm-links-title.bcm-gradient-1::before { background-image: linear-gradient(90deg, #ff5733, #ffcc00, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-2::before { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-3::before { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-4::before { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff, #66ff33, #33ffcc); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-5::before { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-6::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-7::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-8::before { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff, #cc33ff); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-9::before { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-10::before { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933, #ffcc66, #ffff99); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-11::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
+.bcm-menu-links .bcm-links-title.bcm-gradient-12::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
 
-/* Keyframes वैश्विक होते हैं */
-@keyframes Gradient {
+
+@keyframes bcm-Gradient { /* Prefixed animation name */
     0% { background-position: 0% 50% }
     50% { background-position: 100% 50% }
     100% { background-position: 0% 50% }
 }
-@keyframes fadeInUp {
+
+@keyframes bcm-fadeInUp { /* Prefixed animation name */
     0% { transform: translateY(20px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* लिंक स्टाइल */
-#my-unique-circle-menu .links-content a.outer-cont {
+/* लिंक स्टाइल (व्यक्तिगत ग्रेडिएंट के साथ) */
+.bcm-links-content a.bcm-outer-cont { /* Prefixed classes */
     display: flex;
     align-items: center;
     font-size: 0.95rem;
     cursor: pointer;
     position: relative;
-    color: #fff;
+    color: #fff; /* सफेद टेक्स्ट */
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* गहरा शैडो */
     margin-bottom: 10px;
     padding: 10px 15px;
     border-radius: 10px;
     text-decoration: none;
     overflow: hidden;
-    border: none;
+    border: none; /* डिफ़ॉल्ट बॉर्डर हटाएं */
     box-shadow:
-        inset 0px 0px 4px rgba(255, 255, 255, 0.6),
-        inset 0px 20px 25px rgba(0, 0, 0, 0.7),
-        0px 4px 8px rgba(0, 0, 0, 0.5);
+        inset 0px 0px 4px rgba(255, 255, 255, 0.6), /* थोड़ा सफेद इनसेट */
+        inset 0px 20px 25px rgba(0, 0, 0, 0.7),   /* गहरा इनसेट */
+        0px 4px 8px rgba(0, 0, 0, 0.5);          /* सामान्य शैडो */
+    /* विशिष्ट ग्रेडिएंट नीचे लागू होते हैं */
 }
 
 /* होवर/एक्टिव इफेक्ट्स */
- #my-unique-circle-menu .links-content a.outer-cont::before {
+ .bcm-links-content a.bcm-outer-cont::before { /* Prefixed classes */
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: 12px;
+    inset: 0; /* पैरेंट को पूरी तरह से कवर करें */
+    border-radius: 12px; /* पैरेंट से थोड़ा बड़ा ग्लो इफेक्ट के लिए */
     filter: blur(0);
-    z-index: -1;
-    box-shadow: none;
-    background: conic-gradient(#ffffff33 80deg, #ffffff66, #ffffff88, #ffffff33 280deg);
+    z-index: -1; /* बैकग्राउंड ग्रेडिएंट के पीछे रखें */
+    box-shadow: none; /* स्यूडो-एलिमेंट पर कोई बेस शैडो नहीं */
+    background: conic-gradient(
+        #ffffff33 80deg, /* थोड़ा सफेद */
+        #ffffff66,
+        #ffffff88,
+        #ffffff33 280deg
+    ); /* चमक इफेक्ट */
     transition: all 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; /* डिफ़ॉल्ट रूप से छिपा हुआ */
+    pointer-events: none; /* सुनिश्चित करें कि यह क्लिक को ब्लॉक न करे */
 }
 
-#my-unique-circle-menu .links-content a.outer-cont:hover {
-     transform: translateY(-2px);
+.bcm-links-content a.bcm-outer-cont:hover { /* Prefixed classes */
+     transform: translateY(-2px); /* थोड़ा ऊपर उठाएं */
      box-shadow:
         inset 0px 0px 5px rgba(255, 255, 255, 0.7),
         inset 0px 25px 30px rgba(0, 0, 0, 0.8),
-        0px 6px 12px rgba(0, 0, 0, 0.6);
+        0px 6px 12px rgba(0, 0, 0, 0.6); /* होवर पर बेहतर शैडो */
 }
 
-#my-unique-circle-menu .links-content a.outer-cont:hover::before {
-    filter: blur(10px);
-    opacity: 0.6;
+.bcm-links-content a.bcm-outer-cont:hover::before { /* Prefixed classes */
+    filter: blur(10px); /* थोड़ा ब्लर */
+    opacity: 0.6; /* थोड़ा दिखाएं */
 }
 
-#my-unique-circle-menu .links-content a.outer-cont:active {
-    transform: translateY(1px);
+.bcm-links-content a.bcm-outer-cont:active { /* Prefixed classes */
+    transform: translateY(1px); /* दबाने का प्रभाव */
     box-shadow:
         inset 0px 0px 6px rgba(255, 255, 255, 0.8),
-        inset 0px 30px 35px rgba(0, 0, 0, 0.9);
+        inset 0px 30px 35px rgba(0, 0, 0, 0.9); /* एक्टिव होने पर गहरा इनसेट शैडो */
+     /* margin-top: 1px; /* बटन दबाने का अनुकरण करने के लिए */
 }
-#my-unique-circle-menu .links-content a.outer-cont:active::before {
+.bcm-links-content a.bcm-outer-cont:active::before { /* Prefixed classes */
     filter: blur(5px);
     opacity: 0.8;
 }
 
-#my-unique-circle-menu .links-content a.outer-cont img {
+.bcm-links-content a.bcm-outer-cont img { /* Prefixed classes */
     width: 28px;
     height: 28px;
     margin-right: 12px;
     vertical-align: middle;
     border-radius: 4px;
-    flex-shrink: 0;
-    position: relative;
+    flex-shrink: 0; /* छवि को सिकुड़ने से रोकें */
+    position: relative; /* सुनिश्चित करें कि छवि स्यूडो-एलिमेंट के ऊपर रहे */
     z-index: 1;
 }
 
-#my-unique-circle-menu .links-content a.outer-cont span {
-     position: relative;
+.bcm-links-content a.bcm-outer-cont span { /* Prefixed classes */
+     position: relative; /* सुनिश्चित करें कि टेक्स्ट स्यूडो-एलिमेंट के ऊपर रहे */
      z-index: 1;
-     flex-grow: 1;
+     flex-grow: 1; /* टेक्स्ट को शेष स्थान लेने दें */
  }
 
-#my-unique-circle-menu .links-content .links {
+/* लिंक सेक्शन डिफ़ॉल्ट रूप से छिपे हुए */
+.bcm-links-content .bcm-links { /* Prefixed classes */
     display: none;
 }
 
-/* मैनुअल कलर प्रति लिंक (बैकग्राउंड) */
-#my-unique-circle-menu .links-content .class-1-5 > a:nth-child(1) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
-#my-unique-circle-menu .links-content .class-1-5 > a:nth-child(2) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+/* मैनुअल कलर प्रति लिंक (बैकग्राउंड) - Prefixed */
+/* Specificity सुनिश्चित करें */
+.bcm-links-content .bcm-class-1-5 > a:nth-child(1) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
+.bcm-links-content .bcm-class-1-5 > a:nth-child(2) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
 
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(3) { background: linear-gradient(90deg, #03a9f4, #00bcd4, #009688); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(4) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(5) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(6) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(7) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
-#my-unique-circle-menu .links-content .class-6-8 > a:nth-child(8) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(3) { background: linear-gradient(90deg, #03a9f4, #00bcd4, #009688); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(4) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(5) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(6) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(7) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
+.bcm-links-content .bcm-class-6-8 > a:nth-child(8) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
 
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(1) { background: linear-gradient(90deg, #ccffcc, #8bc34a, #4caf50); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(2) { background: linear-gradient(90deg, #ffffcc, #ffeb3b, #ffc107); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(3) { background: linear-gradient(90deg, #ffcccc, #e53935, #f44336); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(4) { background: linear-gradient(90deg, #ccffff, #009688, #00bcd4); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(5) { background: linear-gradient(90deg, #ffccff, #ba68c8, #9c27b0); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(6) { background: linear-gradient(90deg, #cc9999, #a1887f, #795548); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(7) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
-#my-unique-circle-menu .links-content .class-9-10 > a:nth-child(8) { background: linear-gradient(90deg, #b0c4de, #90a4ae, #607d8b); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(1) { background: linear-gradient(90deg, #ccffcc, #8bc34a, #4caf50); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(2) { background: linear-gradient(90deg, #ffffcc, #ffeb3b, #ffc107); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(3) { background: linear-gradient(90deg, #ffcccc, #e53935, #f44336); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(4) { background: linear-gradient(90deg, #ccffff, #009688, #00bcd4); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(5) { background: linear-gradient(90deg, #ffccff, #ba68c8, #9c27b0); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(6) { background: linear-gradient(90deg, #cc9999, #a1887f, #795548); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(7) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
+.bcm-links-content .bcm-class-9-10 > a:nth-child(8) { background: linear-gradient(90deg, #b0c4de, #90a4ae, #607d8b); }
 
-#my-unique-circle-menu .links-content .class-11-12 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
-#my-unique-circle-menu .links-content .class-11-12 > a:nth-child(2) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.bcm-links-content .bcm-class-11-12 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
+.bcm-links-content .bcm-class-11-12 > a:nth-child(2) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
 
-#my-unique-circle-menu .links-content .competitive-exam > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-#my-unique-circle-menu .links-content .competitive-exam > a:nth-child(2) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); }
-#my-unique-circle-menu .links-content .competitive-exam > a:nth-child(3) { background: linear-gradient(90deg, #f1c40f, #f39c12, #e67e22); }
+.bcm-links-content .bcm-competitive-exam > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.bcm-links-content .bcm-competitive-exam > a:nth-child(2) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); } /* कर्मख्य - समायोजित */
+.bcm-links-content .bcm-competitive-exam > a:nth-child(3) { background: linear-gradient(90deg, #f1c40f, #f39c12, #e67e22); } /* Qbuk */
 
-#my-unique-circle-menu .links-content .news-channel > a:nth-child(1) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
-#my-unique-circle-menu .links-content .news-channel > a:nth-child(2) { background: linear-gradient(90deg, #3498db, #2980b9, #1f618d); }
+.bcm-links-content .bcm-news-channel > a:nth-child(1) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
+.bcm-links-content .bcm-news-channel > a:nth-child(2) { background: linear-gradient(90deg, #3498db, #2980b9, #1f618d); } /* Fciz */
 
-#my-unique-circle-menu .links-content .yoga-ayurveda > a:nth-child(1) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
-#my-unique-circle-menu .links-content .yoga-ayurveda > a:nth-child(2) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
-#my-unique-circle-menu .links-content .yoga-ayurveda > a:nth-child(3) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); }
+.bcm-links-content .bcm-yoga-ayurveda > a:nth-child(1) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.bcm-links-content .bcm-yoga-ayurveda > a:nth-child(2) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
+.bcm-links-content .bcm-yoga-ayurveda > a:nth-child(3) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); } /* तंत्रीवाक - समायोजित */
 
-#my-unique-circle-menu .links-content .marriage-links > a:nth-child(1) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-#my-unique-circle-menu .links-content .marriage-links > a:nth-child(2) { background: linear-gradient(90deg, #795548, #a1887f, #d7ccc8); }
+.bcm-links-content .bcm-marriage-links > a:nth-child(1) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.bcm-links-content .bcm-marriage-links > a:nth-child(2) { background: linear-gradient(90deg, #795548, #a1887f, #d7ccc8); }
 
-#my-unique-circle-menu .links-content .editorial-links > a:nth-child(1) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
-#my-unique-circle-menu .links-content .editorial-links > a:nth-child(2) { background: linear-gradient(90deg, #607d8b, #90a4ae, #cfd8dc); }
-#my-unique-circle-menu .links-content .editorial-links > a:nth-child(3) { background: linear-gradient(90deg, #2c3e50, #34495e, #2c3e50); }
+.bcm-links-content .bcm-editorial-links > a:nth-child(1) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
+.bcm-links-content .bcm-editorial-links > a:nth-child(2) { background: linear-gradient(90deg, #607d8b, #90a4ae, #cfd8dc); }
+.bcm-links-content .bcm-editorial-links > a:nth-child(3) { background: linear-gradient(90deg, #2c3e50, #34495e, #2c3e50); } /* APGO */
 
-#my-unique-circle-menu .links-content .government-links > a:nth-child(1) { background: linear-gradient(90deg, #b3e5fc, #81d4fa, #4fc3f7); }
+.bcm-links-content .bcm-government-links > a:nth-child(1) { background: linear-gradient(90deg, #b3e5fc, #81d4fa, #4fc3f7); } /* घटनादर्पण - समायोजित */
 
-#my-unique-circle-menu .links-content .astrology-links > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-#my-unique-circle-menu .links-content .astrology-links > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-#my-unique-circle-menu .links-content .astrology-links > a:nth-child(3) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.bcm-links-content .bcm-astrology-links > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.bcm-links-content .bcm-astrology-links > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.bcm-links-content .bcm-astrology-links > a:nth-child(3) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
 
-#my-unique-circle-menu .links-content .vaidik-links > a:nth-child(1) { background: linear-gradient(90deg, #ffeb3b, #ffc107, #ff9800); }
-#my-unique-circle-menu .links-content .vaidik-links > a:nth-child(2) { background: linear-gradient(90deg, #fff9c4, #fff59d, #fff176); }
+.bcm-links-content .bcm-vaidik-links > a:nth-child(1) { background: linear-gradient(90deg, #ffeb3b, #ffc107, #ff9800); }
+.bcm-links-content .bcm-vaidik-links > a:nth-child(2) { background: linear-gradient(90deg, #fff9c4, #fff59d, #fff176); } /* मुक्तसंगः - समायोजित */
 
-/* मेन्यू लिंक्स के लिए कस्टम स्क्रॉलबार */
-#my-unique-circle-menu .menu-links::-webkit-scrollbar { width: 8px; }
-#my-unique-circle-menu .menu-links::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
-#my-unique-circle-menu .menu-links::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }
-#my-unique-circle-menu .menu-links::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.6); }
-/* --- End Unique Circle Menu CSS --- */
+/* मेन्यू लिंक्स के लिए कस्टम स्क्रॉलबार - Prefixed */
+.bcm-menu-links::-webkit-scrollbar { width: 8px; }
+.bcm-menu-links::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; } /* सफेद ट्रैक डार्क बैकग्राउंड पर */
+.bcm-menu-links::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; } /* थोड़ा अधिक दिखने वाला थंब */
+.bcm-menu-links::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.6); }
