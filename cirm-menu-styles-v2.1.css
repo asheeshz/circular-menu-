@@ -1,5 +1,5 @@
 /* सर्कुलर मेन्यू कंटेनर */
-.circle-menu-container {
+.cm__circle-menu-container {
     position: fixed;
     top: 10px;
     left: 85%; /* आप इसे अपनी आवश्यकतानुसार समायोजित कर सकते हैं */
@@ -8,7 +8,7 @@
 }
 
 /* मेन्यू आइकॉन */
-.menu-toggle {
+.cm__menu-toggle {
     width: 60px;
     height: 60px;
     background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCbarYqIlzfRqB0VbKZvHmwyyPtvU0Y2Nkv1izHDcL_tlX1A6d3u8KtV85jfUhqqZcsUDKds1yQDDn6p_MJbM_wec1tyUHOw50hsTHKlpVzeEfhZR_gkFsL_O4OG0zytlGbKUlJaRQPSDfx7SAqI4D6B_SnWzxSQ-lWz3ld38THUIYWdDwsXE7bBuJx7EN/s374/IMG_20250404_055208.png');
@@ -19,16 +19,15 @@
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.menu-toggle:hover {
+.cm__menu-toggle:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* सब-कैटेगरी मेन्यू */
-.menu-categories {
+.cm__menu-categories {
     position: absolute;
     top: 80px;
-    /* right के बजाय left और transform का उपयोग करना अधिक विश्वसनीय हो सकता है */
     left: -180%;
     transform: translateX(-50%) scale(0); /* प्रारंभिक स्थिति */
     display: grid;
@@ -45,14 +44,14 @@
     z-index: 1001;
 }
 
-.menu-categories.active {
+.cm__menu-categories.cm__active {
     transform: translateX(-50%) scale(1); /* सही ट्रांसफॉर्म */
     opacity: 1;
     visibility: visible;
 }
 
 /* "अपनी पसंद पर क्लिक करें" टाइटल */
-.menu-categories .category-title {
+.cm__menu-categories .cm__category-title {
     font-size: 1.2em;
     font-weight: bold;
     text-align: center;
@@ -61,40 +60,36 @@
     border-bottom: 1px solid #555; /* थोड़ी डार्क बॉर्डर */
     display: none; /* डिफ़ॉल्ट रूप से छिपा हुआ */
     grid-column: 1 / -1; /* पूरी चौड़ाई ले */
-    animation: zoomIn 0.8s ease-out; /* थोड़ी तेज एनिमेशन */
+    animation: cm__zoomIn 0.8s ease-out; /* थोड़ी तेज एनिमेशन */
     background-size: 200% auto;
     transition: background-position 0.5s ease;
     cursor: pointer;
     border-radius: 30px; /* गोल किनारे */
-    /* ग्रेडिएंट JS द्वारा लागू किया जाएगा */
 }
 
-/* Gradient Background Styles for category titles (Applied dynamically by JS) */
-.menu-categories .category-title.gradient-1 { background-image: linear-gradient(135deg, #e74c3c 0%, #e74c3c 10%, #e67e22 10%, #e67e22 20%, #f1c40f 20%, #f1c40f 30%, #2ecc71 30%, #2ecc71 40%, #1abc9c 40%, #1abc9c 50%, #3498db 50%, #3498db 60%, #2980b9 60%, #2980b9 70%, #9b59b6 70%, #9b59b6 80%, #e91e63 80%, #e91e63 90%, #34495e 90%, #34495e 100%); }
-.menu-categories .category-title.gradient-2 { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33); }
-.menu-categories .category-title.gradient-3 { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066); }
-.menu-categories .category-title.gradient-4 { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
-.menu-categories .category-title.gradient-5 { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc); }
-.menu-categories .category-title.gradient-6 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-.menu-categories .category-title.gradient-7 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
-.menu-categories .category-title.gradient-8 { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc); }
-.menu-categories .category-title.gradient-9 { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff); }
-.menu-categories .category-title.gradient-10 { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
-.menu-categories .category-title.gradient-11 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-.menu-categories .category-title.gradient-12 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
+.cm__menu-categories .cm__category-title.cm__gradient-1 { background-image: linear-gradient(135deg, #e74c3c 0%, #e74c3c 10%, #e67e22 10%, #e67e22 20%, #f1c40f 20%, #f1c40f 30%, #2ecc71 30%, #2ecc71 40%, #1abc9c 40%, #1abc9c 50%, #3498db 50%, #3498db 60%, #2980b9 60%, #2980b9 70%, #9b59b6 70%, #9b59b6 80%, #e91e63 80%, #e91e63 90%, #34495e 90%, #34495e 100%); }
+.cm__menu-categories .cm__category-title.cm__gradient-2 { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33); }
+.cm__menu-categories .cm__category-title.cm__gradient-3 { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066); }
+.cm__menu-categories .cm__category-title.cm__gradient-4 { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
+.cm__menu-categories .cm__category-title.cm__gradient-5 { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc); }
+.cm__menu-categories .cm__category-title.cm__gradient-6 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.cm__menu-categories .cm__category-title.cm__gradient-7 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
+.cm__menu-categories .cm__category-title.cm__gradient-8 { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc); }
+.cm__menu-categories .cm__category-title.cm__gradient-9 { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff); }
+.cm__menu-categories .cm__category-title.cm__gradient-10 { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
+.cm__menu-categories .cm__category-title.cm__gradient-11 { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.cm__menu-categories .cm__category-title.cm__gradient-12 { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff); }
 
-/* Gradient Animation on Hover for category titles */
-.menu-categories .category-title:hover {
+.cm__menu-categories .cm__category-title:hover {
     background-position: right center;
 }
 
-@keyframes zoomIn {
+@keyframes cm__zoomIn {
     0% { transform: scale(0.7); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* कैटेगरी आइकॉन स्टाइल */
-.menu-categories .category {
+.cm__menu-categories .cm__category {
     width: 68px;
     height: 68px;
     background-color: #fff;
@@ -110,246 +105,233 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.menu-categories .category img {
+.cm__menu-categories .cm__category img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     border-radius: 50%;
 }
 
-.menu-categories .category:hover {
+.cm__menu-categories .cm__category:hover {
     transform: scale(1.15);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border-color: #4caf50;
 }
 
-/* लिंक बॉक्स */
-.menu-links {
+.cm__menu-links {
     position: absolute;
     top: 80px;
-    left: -180%; /* कैटेगरी मेन्यू के समान स्थिति */
-    transform: translateX(-50%) scale(0); /* प्रारंभिक स्थिति */
+    left: -180%;
+    transform: translateX(-50%) scale(0);
     width: 340px;
-    background-color: #200000; /* बैकग्राउंड कलर */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* गहरा शैडो */
+    background-color: #200000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     padding: 20px;
     opacity: 0;
     visibility: hidden;
-    max-height: 400px; /* अधिकतम ऊंचाई */
-    overflow-y: auto; /* स्क्रॉल बार */
+    max-height: 400px;
+    overflow-y: auto;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, visibility 0.4s ease;
-    display: none; /* Start hidden */
-    z-index: 1000; /* Lower z-index initially */
+    display: none;
+    z-index: 1000;
 }
 
-.menu-links.show {
+.cm__menu-links.cm__show {
     display: block;
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) scale(1); /* दिखने पर सही ट्रांसफॉर्म */
-    z-index: 1002; /* Higher z-index when shown */
+    transform: translateX(-50%) scale(1);
+    z-index: 1002;
 }
 
-/* लिंक्स टाइटल स्टाइल (आइकन के साथ) */
-.menu-links .links-title {
+.cm__menu-links .cm__links-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     text-align: center;
-    animation: fadeInUp 1s ease-in-out;
+    animation: cm__fadeInUp 1s ease-in-out;
     color: #fff;
     padding: 10px;
     border-radius: 8px;
     position: relative;
     z-index: 1;
-    background-color: transparent; /* Ensure background doesn't obscure the border */
-    overflow: hidden; /* Contain the pseudo-element */
+    background-color: transparent;
+    overflow: hidden;
 }
 
-/* लिंक्स टाइटल के लिए एनिमेटेड बॉर्डर */
-.menu-links .links-title::before {
+.cm__menu-links .cm__links-title::before {
     content: '';
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px; /* पूरे क्षेत्र को कवर करें */
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
     background-size: 400% 400%;
-    z-index: -1; /* टेक्स्ट के पीछे रखें */
-    border-radius: 10px; /* थोड़ा बड़ा रेडियस ताकि पैरेंट से मैच न करे और बॉर्डर जैसा दिखे */
-    animation: Gradient 5s ease infinite;
-    /* ग्रेडिएंट JS द्वारा लागू किया जाएगा */
+    z-index: -1;
+    border-radius: 10px;
+    animation: cm__Gradient 5s ease infinite;
 }
 
-/* लिंक्स टाइटल बॉर्डर के लिए ग्रेडिएंट एनिमेशन (JS द्वारा लागू) */
-.menu-links .links-title.gradient-1::before { background-image: linear-gradient(90deg, #ff5733, #ffcc00, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
-.menu-links .links-title.gradient-2::before { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399); }
-.menu-links .links-title.gradient-3::before { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff); }
-.menu-links .links-title.gradient-4::before { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff, #66ff33, #33ffcc); }
-.menu-links .links-title.gradient-5::before { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
-.menu-links .links-title.gradient-6::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
-.menu-links .links-title.gradient-7::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
-.menu-links .links-title.gradient-8::before { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff, #cc33ff); }
-.menu-links .links-title.gradient-9::before { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
-.menu-links .links-title.gradient-10::before { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933, #ffcc66, #ffff99); }
-.menu-links .links-title.gradient-11::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
-.menu-links .links-title.gradient-12::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
+.cm__menu-links .cm__links-title.cm__gradient-1::before { background-image: linear-gradient(90deg, #ff5733, #ffcc00, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00); }
+.cm__menu-links .cm__links-title.cm__gradient-2::before { background-image: linear-gradient(90deg, #3366ff, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399); }
+.cm__menu-links .cm__links-title.cm__gradient-3::before { background-image: linear-gradient(90deg, #00ffcc, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff); }
+.cm__menu-links .cm__links-title.cm__gradient-4::before { background-image: linear-gradient(90deg, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff, #66ff33, #33ffcc); }
+.cm__menu-links .cm__links-title.cm__gradient-5::before { background-image: linear-gradient(90deg, #ff3300, #ff9933, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933); }
+.cm__menu-links .cm__links-title.cm__gradient-6::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
+.cm__menu-links .cm__links-title.cm__gradient-7::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
+.cm__menu-links .cm__links-title.cm__gradient-8::before { background-image: linear-gradient(90deg, #33ccff, #cc33ff, #ff33cc, #ff0066, #00ffcc, #33ccff, #cc33ff); }
+.cm__menu-links .cm__links-title.cm__gradient-9::before { background-image: linear-gradient(90deg, #6633ff, #cc33ff, #66ff33, #33ffcc, #3366ff, #6633ff, #cc33ff); }
+.cm__menu-links .cm__links-title.cm__gradient-10::before { background-image: linear-gradient(90deg, #ffcc66, #ffff99, #ccffcc, #ff3300, #ff9933, #ffcc66, #ffff99); }
+.cm__menu-links .cm__links-title.cm__gradient-11::before { background-image: linear-gradient(90deg, #33ff57, #00ccff, #cc33ff, #ff5733, #ffcc00, #33ff57, #00ccff); }
+.cm__menu-links .cm__links-title.cm__gradient-12::before { background-image: linear-gradient(90deg, #cc3399, #ff3366, #ff6600, #ffff33, #3366ff, #cc3399, #ff3366); }
 
-
-@keyframes Gradient {
+@keyframes cm__Gradient {
     0% { background-position: 0% 50% }
     50% { background-position: 100% 50% }
     100% { background-position: 0% 50% }
 }
 
-@keyframes fadeInUp {
+@keyframes cm__fadeInUp {
     0% { transform: translateY(20px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* लिंक स्टाइल (व्यक्तिगत ग्रेडिएंट के साथ) */
-.links-content a.outer-cont {
+.cm__links-content a.cm__outer-cont {
     display: flex;
     align-items: center;
     font-size: 0.95rem;
     cursor: pointer;
     position: relative;
-    color: #fff; /* सफेद टेक्स्ट */
+    color: #fff;
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* गहरा शैडो */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
     padding: 10px 15px;
     border-radius: 10px;
     text-decoration: none;
     overflow: hidden;
-    border: none; /* डिफ़ॉल्ट बॉर्डर हटाएं */
+    border: none;
     box-shadow:
-        inset 0px 0px 4px rgba(255, 255, 255, 0.6), /* थोड़ा सफेद इनसेट */
-        inset 0px 20px 25px rgba(0, 0, 0, 0.7),   /* गहरा इनसेट */
-        0px 4px 8px rgba(0, 0, 0, 0.5);          /* सामान्य शैडो */
-    /* विशिष्ट ग्रेडिएंट नीचे लागू होते हैं */
+        inset 0px 0px 4px rgba(255, 255, 255, 0.6),
+        inset 0px 20px 25px rgba(0, 0, 0, 0.7),
+        0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* होवर/एक्टिव इफेक्ट्स */
- .links-content a.outer-cont::before {
+.cm__links-content a.cm__outer-cont::before {
     content: "";
     position: absolute;
-    inset: 0; /* पैरेंट को पूरी तरह से कवर करें */
-    border-radius: 12px; /* पैरेंट से थोड़ा बड़ा ग्लो इफेक्ट के लिए */
+    inset: 0;
+    border-radius: 12px;
     filter: blur(0);
-    z-index: -1; /* बैकग्राउंड ग्रेडिएंट के पीछे रखें */
-    box-shadow: none; /* स्यूडो-एलिमेंट पर कोई बेस शैडो नहीं */
+    z-index: -1;
+    box-shadow: none;
     background: conic-gradient(
-        #ffffff33 80deg, /* थोड़ा सफेद */
+        #ffffff33 80deg,
         #ffffff66,
         #ffffff88,
         #ffffff33 280deg
-    ); /* चमक इफेक्ट */
+    );
     transition: all 0.3s ease;
-    opacity: 0; /* डिफ़ॉल्ट रूप से छिपा हुआ */
-    pointer-events: none; /* सुनिश्चित करें कि यह क्लिक को ब्लॉक न करे */
+    opacity: 0;
+    pointer-events: none;
 }
 
-.links-content a.outer-cont:hover {
-     transform: translateY(-2px); /* थोड़ा ऊपर उठाएं */
+.cm__links-content a.cm__outer-cont:hover {
+     transform: translateY(-2px);
      box-shadow:
         inset 0px 0px 5px rgba(255, 255, 255, 0.7),
         inset 0px 25px 30px rgba(0, 0, 0, 0.8),
-        0px 6px 12px rgba(0, 0, 0, 0.6); /* होवर पर बेहतर शैडो */
+        0px 6px 12px rgba(0, 0, 0, 0.6);
 }
 
-.links-content a.outer-cont:hover::before {
-    filter: blur(10px); /* थोड़ा ब्लर */
-    opacity: 0.6; /* थोड़ा दिखाएं */
+.cm__links-content a.cm__outer-cont:hover::before {
+    filter: blur(10px);
+    opacity: 0.6;
 }
 
-.links-content a.outer-cont:active {
-    transform: translateY(1px); /* दबाने का प्रभाव */
+.cm__links-content a.cm__outer-cont:active {
+    transform: translateY(1px);
     box-shadow:
         inset 0px 0px 6px rgba(255, 255, 255, 0.8),
-        inset 0px 30px 35px rgba(0, 0, 0, 0.9); /* एक्टिव होने पर गहरा इनसेट शैडो */
-     /* margin-top: 1px; /* बटन दबाने का अनुकरण करने के लिए */
+        inset 0px 30px 35px rgba(0, 0, 0, 0.9);
 }
-.links-content a.outer-cont:active::before {
+.cm__links-content a.cm__outer-cont:active::before {
     filter: blur(5px);
     opacity: 0.8;
 }
 
-.links-content a.outer-cont img {
+.cm__links-content a.cm__outer-cont img {
     width: 28px;
     height: 28px;
     margin-right: 12px;
     vertical-align: middle;
     border-radius: 4px;
-    flex-shrink: 0; /* छवि को सिकुड़ने से रोकें */
-    position: relative; /* सुनिश्चित करें कि छवि स्यूडो-एलिमेंट के ऊपर रहे */
+    flex-shrink: 0;
+    position: relative;
     z-index: 1;
 }
 
-.links-content a.outer-cont span {
-     position: relative; /* सुनिश्चित करें कि टेक्स्ट स्यूडो-एलिमेंट के ऊपर रहे */
+.cm__links-content a.cm__outer-cont span {
+     position: relative;
      z-index: 1;
-     flex-grow: 1; /* टेक्स्ट को शेष स्थान लेने दें */
+     flex-grow: 1;
  }
 
-/* लिंक सेक्शन डिफ़ॉल्ट रूप से छिपे हुए */
-.links-content .links {
+.cm__links-content .cm__links {
     display: none;
 }
 
-/* मैनुअल कलर प्रति लिंक (बैकग्राउंड) */
-/* Specificity सुनिश्चित करें */
-.links-content .class-1-5 > a:nth-child(1) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
-.links-content .class-1-5 > a:nth-child(2) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+/* इन क्लास के नामों में cm__ प्रीफिक्स जावास्क्रिप्ट में data-category से सीधे लिया जाता है */
+.cm__links-content .cm__class-1-5 > a:nth-child(1) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
+.cm__links-content .cm__class-1-5 > a:nth-child(2) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
 
-.links-content .class-6-8 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
-.links-content .class-6-8 > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-.links-content .class-6-8 > a:nth-child(3) { background: linear-gradient(90deg, #03a9f4, #00bcd4, #009688); }
-.links-content .class-6-8 > a:nth-child(4) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
-.links-content .class-6-8 > a:nth-child(5) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-.links-content .class-6-8 > a:nth-child(6) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
-.links-content .class-6-8 > a:nth-child(7) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
-.links-content .class-6-8 > a:nth-child(8) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); } /* 9वें को 8वां किया */
+.cm__links-content .cm__class-6-8 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
+.cm__links-content .cm__class-6-8 > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.cm__links-content .cm__class-6-8 > a:nth-child(3) { background: linear-gradient(90deg, #03a9f4, #00bcd4, #009688); }
+.cm__links-content .cm__class-6-8 > a:nth-child(4) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
+.cm__links-content .cm__class-6-8 > a:nth-child(5) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.cm__links-content .cm__class-6-8 > a:nth-child(6) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
+.cm__links-content .cm__class-6-8 > a:nth-child(7) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
+.cm__links-content .cm__class-6-8 > a:nth-child(8) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
 
-.links-content .class-9-10 > a:nth-child(1) { background: linear-gradient(90deg, #ccffcc, #8bc34a, #4caf50); }
-.links-content .class-9-10 > a:nth-child(2) { background: linear-gradient(90deg, #ffffcc, #ffeb3b, #ffc107); }
-.links-content .class-9-10 > a:nth-child(3) { background: linear-gradient(90deg, #ffcccc, #e53935, #f44336); }
-.links-content .class-9-10 > a:nth-child(4) { background: linear-gradient(90deg, #ccffff, #009688, #00bcd4); }
-.links-content .class-9-10 > a:nth-child(5) { background: linear-gradient(90deg, #ffccff, #ba68c8, #9c27b0); }
-.links-content .class-9-10 > a:nth-child(6) { background: linear-gradient(90deg, #cc9999, #a1887f, #795548); }
-.links-content .class-9-10 > a:nth-child(7) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
-.links-content .class-9-10 > a:nth-child(8) { background: linear-gradient(90deg, #b0c4de, #90a4ae, #607d8b); }
+.cm__links-content .cm__class-9-10 > a:nth-child(1) { background: linear-gradient(90deg, #ccffcc, #8bc34a, #4caf50); }
+.cm__links-content .cm__class-9-10 > a:nth-child(2) { background: linear-gradient(90deg, #ffffcc, #ffeb3b, #ffc107); }
+.cm__links-content .cm__class-9-10 > a:nth-child(3) { background: linear-gradient(90deg, #ffcccc, #e53935, #f44336); }
+.cm__links-content .cm__class-9-10 > a:nth-child(4) { background: linear-gradient(90deg, #ccffff, #009688, #00bcd4); }
+.cm__links-content .cm__class-9-10 > a:nth-child(5) { background: linear-gradient(90deg, #ffccff, #ba68c8, #9c27b0); }
+.cm__links-content .cm__class-9-10 > a:nth-child(6) { background: linear-gradient(90deg, #cc9999, #a1887f, #795548); }
+.cm__links-content .cm__class-9-10 > a:nth-child(7) { background: linear-gradient(90deg, #ffc107, #ff9800, #ff5722); }
+.cm__links-content .cm__class-9-10 > a:nth-child(8) { background: linear-gradient(90deg, #b0c4de, #90a4ae, #607d8b); }
 
-.links-content .class-11-12 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
-.links-content .class-11-12 > a:nth-child(2) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.cm__links-content .cm__class-11-12 > a:nth-child(1) { background: linear-gradient(90deg, #e91e63, #9c27b0, #673ab7); }
+.cm__links-content .cm__class-11-12 > a:nth-child(2) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
 
-.links-content .competitive-exam > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-.links-content .competitive-exam > a:nth-child(2) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); } /* कर्मख्य - समायोजित */
-.links-content .competitive-exam > a:nth-child(3) { background: linear-gradient(90deg, #f1c40f, #f39c12, #e67e22); } /* Qbuk */
+.cm__links-content .cm__competitive-exam > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.cm__links-content .cm__competitive-exam > a:nth-child(2) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); }
+.cm__links-content .cm__competitive-exam > a:nth-child(3) { background: linear-gradient(90deg, #f1c40f, #f39c12, #e67e22); }
 
-.links-content .news-channel > a:nth-child(1) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
-.links-content .news-channel > a:nth-child(2) { background: linear-gradient(90deg, #3498db, #2980b9, #1f618d); } /* Fciz */
+.cm__links-content .cm__news-channel > a:nth-child(1) { background: linear-gradient(90deg, #ff9800, #ffc107, #ffeb3b); }
+.cm__links-content .cm__news-channel > a:nth-child(2) { background: linear-gradient(90deg, #3498db, #2980b9, #1f618d); }
 
-.links-content .yoga-ayurveda > a:nth-child(1) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
-.links-content .yoga-ayurveda > a:nth-child(2) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
-.links-content .yoga-ayurveda > a:nth-child(3) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); } /* तंत्रीवाक - समायोजित */
+.cm__links-content .cm__yoga-ayurveda > a:nth-child(1) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.cm__links-content .cm__yoga-ayurveda > a:nth-child(2) { background: linear-gradient(90deg, #8bc34a, #cddc39, #f0f4c3); }
+.cm__links-content .cm__yoga-ayurveda > a:nth-child(3) { background: linear-gradient(90deg, #708090, #536d7a, #37474f); }
 
-.links-content .marriage-links > a:nth-child(1) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-.links-content .marriage-links > a:nth-child(2) { background: linear-gradient(90deg, #795548, #a1887f, #d7ccc8); }
+.cm__links-content .cm__marriage-links > a:nth-child(1) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.cm__links-content .cm__marriage-links > a:nth-child(2) { background: linear-gradient(90deg, #795548, #a1887f, #d7ccc8); }
 
-.links-content .editorial-links > a:nth-child(1) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
-.links-content .editorial-links > a:nth-child(2) { background: linear-gradient(90deg, #607d8b, #90a4ae, #cfd8dc); }
-.links-content .editorial-links > a:nth-child(3) { background: linear-gradient(90deg, #2c3e50, #34495e, #2c3e50); } /* APGO */
+.cm__links-content .cm__editorial-links > a:nth-child(1) { background: linear-gradient(90deg, #9c27b0, #ba68c8, #e1bee7); }
+.cm__links-content .cm__editorial-links > a:nth-child(2) { background: linear-gradient(90deg, #607d8b, #90a4ae, #cfd8dc); }
+.cm__links-content .cm__editorial-links > a:nth-child(3) { background: linear-gradient(90deg, #2c3e50, #34495e, #2c3e50); }
 
-.links-content .government-links > a:nth-child(1) { background: linear-gradient(90deg, #b3e5fc, #81d4fa, #4fc3f7); } /* घटनादर्पण - समायोजित */
+.cm__links-content .cm__government-links > a:nth-child(1) { background: linear-gradient(90deg, #b3e5fc, #81d4fa, #4fc3f7); }
 
-.links-content .astrology-links > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
-.links-content .astrology-links > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
-.links-content .astrology-links > a:nth-child(3) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
+.cm__links-content .cm__astrology-links > a:nth-child(1) { background: linear-gradient(90deg, #4caf50, #8bc34a, #cddc39); }
+.cm__links-content .cm__astrology-links > a:nth-child(2) { background: linear-gradient(90deg, #f44336, #e53935, #d32f2f); }
+.cm__links-content .cm__astrology-links > a:nth-child(3) { background: linear-gradient(90deg, #00bcd4, #03a9f4, #009688); }
 
-.links-content .vaidik-links > a:nth-child(1) { background: linear-gradient(90deg, #ffeb3b, #ffc107, #ff9800); }
-.links-content .vaidik-links > a:nth-child(2) { background: linear-gradient(90deg, #fff9c4, #fff59d, #fff176); } /* मुक्तसंगः - समायोजित */
+.cm__links-content .cm__vaidik-links > a:nth-child(1) { background: linear-gradient(90deg, #ffeb3b, #ffc107, #ff9800); }
+.cm__links-content .cm__vaidik-links > a:nth-child(2) { background: linear-gradient(90deg, #fff9c4, #fff59d, #fff176); }
 
-/* मेन्यू लिंक्स के लिए कस्टम स्क्रॉलबार */
-.menu-links::-webkit-scrollbar { width: 8px; }
-.menu-links::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; } /* सफेद ट्रैक डार्क बैकग्राउंड पर */
-.menu-links::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; } /* थोड़ा अधिक दिखने वाला थंब */
-.menu-links::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.6); }
+.cm__menu-links::-webkit-scrollbar { width: 8px; }
+.cm__menu-links::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+.cm__menu-links::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: content-box; }
+.cm__menu-links::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.6); }
